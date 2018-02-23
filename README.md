@@ -2,8 +2,12 @@
 Project for calculating the roots of quadratic equation
 
 For start project you need use next comands (if you use command line): 
-1). mvn clean install
-2). mvn tomcat7:run
+1). git clone https://github.com/Yagi7337/TestTask.git
+
+2). Next need go to the project directory;
+
+3). mvn clean install
+4). mvn tomcat7:run
 
 For start project you need to do (if you eclipse): 
 1). In menu Run -> Run Configurations -> Maven -> New
