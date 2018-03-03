@@ -14,8 +14,9 @@ public interface IQuadraticEquation {
 	 * Save data about quadratic equation in DB (create new record, not update)
 	 * 
 	 * @param quadraticEquation
+	 * @return 
 	 */
-	public void saveResult(QuadraticEquation quadraticEquation);
+	public Integer saveResult(QuadraticEquation quadraticEquation);
 
 	/**
 	 * Get full information about quadratic equation (variables, roots, count of

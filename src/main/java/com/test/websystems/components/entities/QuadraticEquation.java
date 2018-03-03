@@ -1,5 +1,7 @@
 package com.test.websystems.components.entities;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -119,6 +121,34 @@ public class QuadraticEquation {
 
 	public void setMessageForUser(String messageForUser) {
 		this.messageForUser = messageForUser;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == this) {
+			return true;
+		}
+
+		if (obj == null || obj.getClass() != this.getClass()) {
+			return false;
+		}
+
+		QuadraticEquation quadraticEquation = (QuadraticEquation) obj;
+
+		return (id == quadraticEquation.id || (id != null && id.equals(quadraticEquation.getId())))
+				&& (variableA == quadraticEquation.variableA) && (variableB == quadraticEquation.variableB)
+				&& (variableC == quadraticEquation.variableC)
+				&& (rootFirst == quadraticEquation.rootFirst
+						|| (rootFirst != null && rootFirst.equals(quadraticEquation.getRootFirst())))
+				&& (rootSecond == quadraticEquation.rootSecond
+						|| (rootSecond != null && rootSecond.equals(quadraticEquation.getRootSecond())))
+				&& (countRoots == quadraticEquation.countRoots) && (messageForUser == quadraticEquation.messageForUser
+						|| (messageForUser != null && messageForUser.equals(quadraticEquation.getMessageForUser())));
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(variableA, variableB, variableC, rootFirst, rootSecond, countRoots, messageForUser);
 	}
 
 }
