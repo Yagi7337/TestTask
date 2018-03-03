@@ -22,6 +22,14 @@ public class QuadraticEquationService {
 	@Autowired
 	private IQuadraticEquation iQuadraticEquation;
 
+	public CalculateQuadraticRootsService getCalculateQuadraticRootsService() {
+		return calculateQuadraticRootsService;
+	}
+
+	public IQuadraticEquation getIQuadraticEquation() {
+		return iQuadraticEquation;
+	}
+
 	/**
 	 * Save data about quadratic equation in DB (create new record, not update).
 	 * Also call service for calculate roots, count of roots quadratic equation.
@@ -30,8 +38,8 @@ public class QuadraticEquationService {
 	 * @param quadraticEquation
 	 */
 	public void saveResult(QuadraticEquation quadraticEquation) {
-		calculateQuadraticRootsService.calculateRoots(quadraticEquation);
-		iQuadraticEquation.saveResult(quadraticEquation);
+		getCalculateQuadraticRootsService().calculateRoots(quadraticEquation);
+		getIQuadraticEquation().saveResult(quadraticEquation);
 	};
 
 	/**
@@ -42,7 +50,7 @@ public class QuadraticEquationService {
 	 * @return QuadraticEquation (object of entity)
 	 */
 	public QuadraticEquation getResult(Integer id) {
-		return iQuadraticEquation.getResult(id);
+		return getIQuadraticEquation().getResult(id);
 	};
 
 }

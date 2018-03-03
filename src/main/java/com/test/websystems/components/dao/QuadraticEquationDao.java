@@ -24,19 +24,22 @@ public class QuadraticEquationDao implements IQuadraticEquation {
 	 * Save data about quadratic equation in DB (create new record, not update)
 	 * 
 	 * @param quadraticEquation
+	 * @return
 	 */
 	@Override
-	public void saveResult(QuadraticEquation quadraticEquation) {
+	public Integer saveResult(QuadraticEquation quadraticEquation) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 
 		session.beginTransaction();
-		
+
 		session.save(quadraticEquation);
-		
+
 		session.getTransaction().commit();
 
 		LOGGER.info(String.format("Save | Quadratic equation, roots, message for user save id database. Id [%s].",
 				quadraticEquation.getId()));
+
+		return quadraticEquation.getId();
 	}
 
 	/**
